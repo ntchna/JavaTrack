@@ -14,8 +14,8 @@ public class HomeAppliances {
 
     @Override
     public String toString() {
-        return ID+"\t"+type+"\t"+ model+"\t"+name+"\t"
-                +company+"\t"+quantity+"\t"+price+"\t"+date+"\n";
+        return String.format("%-5d || %-27s ||%-17s || %-30s || %-11s || %-8d || %-6s || %-10s",
+                ID, type, model, name, company, quantity, price, date);
     }
 
     public int getID() {

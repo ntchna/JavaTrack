@@ -1,7 +1,6 @@
 package com.KPI.IS81.lab01.controller;
 
 import com.KPI.IS81.lab01.model.Sevice;
-import com.KPI.IS81.lab01.view.Input;
 import com.KPI.IS81.lab01.view.Output;
 
 public class Controller {

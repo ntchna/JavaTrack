@@ -60,11 +60,12 @@ public class Output {
         if (appliances.length == 0){
             System.out.println("no appliances");
         }else {
-            System.out.println("ID\tType\tModel\tName\tCompany\tQuantity\tPrice\tDate\n");
+
+            System.out.println("ID    || Type                        || Model            || Name                           || Company     || Quantity || Price  || Date\n");
             for (HomeAppliances homeAppliances : appliances) {
                 System.out.println(homeAppliances);
             }
-        }
+        } System.out.println("------------------------\n");
     }
 
 }

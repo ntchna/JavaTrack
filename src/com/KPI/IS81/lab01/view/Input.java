@@ -7,12 +7,11 @@ package com.KPI.IS81.lab01.view;
         import java.util.Scanner;
 
 public class Input {
-    private Validator validator;
     private Scanner scanner;
     private static final int Wrong_Item= -1;
 
     public Input(){
-        validator = new Validator();
+        Validator validator = new Validator();
         scanner = new Scanner(System.in);
     }
 

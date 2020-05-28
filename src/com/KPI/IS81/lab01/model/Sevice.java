@@ -1,7 +1,5 @@
 package com.KPI.IS81.lab01.model;
 
-import com.KPI.IS81.lab01.view.Validator;
-
 import java.util.Arrays;
 
 public class Sevice {
@@ -19,9 +17,9 @@ public class Sevice {
         HomeAppliances[] filter = new HomeAppliances[appliances.length];
 
         int counter = 0;
-        for(int i = 0; i < appliances.length; i++) {
-            if (appliances[i].getPrice() <= 500) {
-                filter[counter] = appliances[i];
+        for (HomeAppliances appliance : appliances) {
+            if (appliance.getPrice() <= 500) {
+                filter[counter] = appliance;
                 counter++;
             }
         }
@@ -31,26 +29,26 @@ public class Sevice {
     public HomeAppliances[] getNameWhithGivenType(String givenType) {
         HomeAppliances[] filter = new HomeAppliances[appliances.length];
         int counter = 0;
-             for (int i = 0; i < appliances.length; i++) {
-                if (appliances[i].getType().equals(givenType)) {
-                    filter[counter] = appliances[i];
-                    counter++;
-                }
-
+        for (HomeAppliances appliance : appliances) {
+            if (appliance.getType().equals(givenType)) {
+                filter[counter] = appliance;
+                counter++;
             }
+
+        }
         return Arrays.copyOf(filter, counter);
     }
 
     public HomeAppliances[] getNameWhithGivenCompany(String givenCompany) {
         HomeAppliances[] filter = new HomeAppliances[appliances.length];
         int counter = 0;
-            for (int i = 0; i < appliances.length; i++) {
-                if (appliances[i].getCompany().equals(givenCompany)) {
-                    filter[counter] = appliances[i];
-                    counter++;
-                }
-
+        for (HomeAppliances appliance : appliances) {
+            if (appliance.getCompany().equals(givenCompany)) {
+                filter[counter] = appliance;
+                counter++;
             }
+
+        }
         return Arrays.copyOf(filter, counter);
     }
 
