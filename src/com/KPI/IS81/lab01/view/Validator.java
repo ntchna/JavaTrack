@@ -1,15 +1,25 @@
 package com.KPI.IS81.lab01.view;
 
+import com.KPI.IS81.lab01.exception.InvalidCompanyException;
+import com.KPI.IS81.lab01.exception.InvalidMenuItemException;
+import com.KPI.IS81.lab01.exception.InvalidTypeException;
+
 public class Validator {
-    static boolean isValidMenuPoint(String menuPoint){
-        return menuPoint.matches("[1-5]");
+    public static void isValidMenuPoint(String menuPoint) throws InvalidMenuItemException {
+        if (!menuPoint.matches("[1-5]")) {
+            throw new InvalidMenuItemException("Menu item '"+menuPoint+"' doesn't exist. Please, input another one.");
+        }
     }
 
-    static boolean isValidGivenType( String givenType){
-       return givenType.matches("[a-zA-Z]*(?i).*");
+    public static void isValidGivenType( String givenType) throws InvalidTypeException {
+       if (!givenType.matches("[a-zA-Z]*(?i).*")){
+           throw new InvalidTypeException("'"+givenType+"'  is invslid. Please, try again.");
+       }
     }
 
-    public static boolean isValidGivenCompany(String givenCompany){
-        return givenCompany.matches("[a-zA-Z]*(?i).*");
+    public static void isValidGivenCompany(String givenCompany)throws InvalidCompanyException{
+        if (!givenCompany.matches("[a-zA-Z]*(?i).*")) {
+            throw new InvalidCompanyException("'"+givenCompany+"' is invalid. Please, try again.");
+        }
     }
 }

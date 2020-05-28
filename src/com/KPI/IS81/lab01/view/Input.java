@@ -1,5 +1,9 @@
 package com.KPI.IS81.lab01.view;
 
+        import com.KPI.IS81.lab01.exception.InvalidCompanyException;
+        import com.KPI.IS81.lab01.exception.InvalidMenuItemException;
+        import com.KPI.IS81.lab01.exception.InvalidTypeException;
+
         import java.util.Scanner;
 
 public class Input {
@@ -15,23 +19,28 @@ public class Input {
     public int getMenuPointForChoise(Output output) {
         String menuPoint;
         menuPoint = scanner.nextLine();
-        if (Validator.isValidMenuPoint(menuPoint)) {
-            return Integer.parseInt(menuPoint);
-        } else {
-            output.showMessage("Menu item is invalid, input another menu item");
+        try{
+            Validator.isValidMenuPoint(menuPoint);
+        }
+        catch (InvalidMenuItemException e) {
+            output.showError(e.getMessage());
             return Wrong_Item;
         }
+        return Integer.parseInt(menuPoint);
     }
 
     public String  inputGivenType(Output output) {
         String givenType ;
         output.showMessage("Enter type to show appropriate appliances:");
         givenType = scanner.nextLine();
-        if (Validator.isValidGivenType(givenType)){
-            return givenType;
-        } else {
-            return String.valueOf(Wrong_Item);
+        try {
+            Validator.isValidGivenType(givenType);
         }
+        catch (InvalidTypeException e){
+            output.showError(e.getMessage());
+        }
+        return givenType;
+
     }
 
 
@@ -40,10 +49,13 @@ public class Input {
         String givenCompany;
         output.showMessage("Enter name of company to show appropriate appliances:");
         givenCompany = scanner.nextLine();
-        if (Validator.isValidGivenType(givenCompany)){
-            return givenCompany;
-        } else {
-            return String.valueOf(Wrong_Item);
+        try {
+            Validator.isValidGivenCompany(givenCompany);
         }
+        catch (InvalidCompanyException e) {
+            output.showError(e.getMessage());
+        }
+        return givenCompany;
+
     }
 }

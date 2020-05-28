@@ -16,6 +16,10 @@ public class Output {
         System.out.println(string);
     }
 
+    public void showError(String string){
+        System.out.println(string);
+    }
+
     public void viewMenu(){
         System.out.println(("Menu"));
         System.out.println("1. Show a list of all home appliances");
@@ -62,15 +66,5 @@ public class Output {
             }
         }
     }
-/*
-    public void formatedView (HomeAppliances [] homeAppliances){
-        int counter = 0;
-        //homeAppliances[0] = String.format("%-5d", HomeAppliances.toString(ID));
-        for (int i = 0; i < homeAppliances.length; i++){
-            HomeAppliances.toString(homeAppliances[i]);
-            homeAppliances[i] += String.format("%-5d || %-30s || %-16s || %-30s || %-11s || %-4d || %-6d || %-10tD %n", ID, type, model, name, company, quantity, price, date);
-            //System.out.printf("ID%-5d\Type%-30s\Model%-16s\Name%-30s\Company%-11s\Quantity%-4d\Price%-6d\Date%-10tD%n", appliances[i] );
-            counter++;
-        }
-    }*/
+
 }
