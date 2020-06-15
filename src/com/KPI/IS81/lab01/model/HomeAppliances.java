@@ -1,8 +1,9 @@
 package com.KPI.IS81.lab01.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class HomeAppliances {
+public class HomeAppliances implements Serializable {
     private int ID;
     private String type;
     private String model;
@@ -14,7 +15,7 @@ public class HomeAppliances {
 
     @Override
     public String toString() {
-        return String.format("%-5d || %-27s ||%-17s || %-30s || %-11s || %-8d || %-6s || %-10s",
+        return String.format("%-5d || %-27s ||%-17s || %-30s || %-11s || %-8d || %-6s || %-10s ;",
                 ID, type, model, name, company, quantity, price, date);
     }
 

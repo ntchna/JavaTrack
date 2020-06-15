@@ -7,7 +7,6 @@ public class Output {
 
     private Input input;
 
-
     public Output(){
         input = new Input();
     }
@@ -42,30 +41,38 @@ public class Output {
         String  givenType;
         while (true){
             givenType = input.inputGivenType(this);
-            if(givenType.length() != -1)
             return givenType;
         }
     }
 
-   public String getGivenCompany(){
+
+    public String getGivenCompany(){
         String givenCompany;
         while (true){
             givenCompany = input.inputGivenCompany(this);
-            if(givenCompany.length() != -1)
             return givenCompany;
         }
-   }
+    }
+
+    public String getFilePath(){
+       String filePath;
+       while (true){
+           filePath = input.inputFilePath(this);
+           return filePath;
+       }
+    }
 
     public void displayAppliances (HomeAppliances[] appliances){
         if (appliances.length == 0){
             System.out.println("no appliances");
         }else {
-
             System.out.println("ID    || Type                        || Model            || Name                           || Company     || Quantity || Price  || Date\n");
             for (HomeAppliances homeAppliances : appliances) {
                 System.out.println(homeAppliances);
+
             }
-        } System.out.println("------------------------\n");
+        }
     }
+
 
 }

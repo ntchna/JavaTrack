@@ -1,5 +1,6 @@
 package com.KPI.IS81.lab01.controller;
 
+import com.KPI.IS81.lab01.model.HomeAppliances;
 import com.KPI.IS81.lab01.model.Sevice;
 import com.KPI.IS81.lab01.view.Output;
 
@@ -10,22 +11,38 @@ public class Controller {
     public Controller(){
         output = new Output();
         sevice = new Sevice();
+
     }
 
     public void run(){
+        sevice.setAppliances();
         do{
             output.viewMenu();
             switch (output.getMenuPoint()){
                 case 1:
                     output.displayAppliances(sevice.getAppliances());
+                    output.showMessage("\n");
                 break;
                 case 2:
-                    output.displayAppliances(sevice.getNameWhithGivenType(output.getGivenType()));
+                    HomeAppliances[] givenNameAppliances = sevice.getNameWhithGivenType(output.getGivenType());
+                    output.displayAppliances(givenNameAppliances);
+                    output.showMessage("\n");
+                    sevice.saveResult(givenNameAppliances, output.getFilePath());
+                    output.showMessage("\n");
                 break;
-                case 3: output.displayAppliances(sevice.getNameWhithSmallPrise());
+                case 3:
+                    HomeAppliances[] appliancesWithSmallPrise = sevice.getNameWhithSmallPrise();
+                    output.displayAppliances(appliancesWithSmallPrise);
+                    output.showMessage("\n");
+                    sevice.saveResult(appliancesWithSmallPrise, output.getFilePath());
+                    output.showMessage("\n");
                 break;
                 case 4:
-                    output.displayAppliances(sevice.getNameWhithGivenCompany(output.getGivenCompany()));
+                    HomeAppliances[] givenCompanyAppliances = sevice.getNameWhithGivenCompany(output.getGivenCompany());
+                    output.displayAppliances(givenCompanyAppliances);
+                    output.showMessage("\n");
+                    sevice.saveResult(givenCompanyAppliances, output.getFilePath());
+                    output.showMessage("\n");
                 break;
                 case 5: System.exit(1);
             }
