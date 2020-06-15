@@ -7,11 +7,13 @@ package com.KPI.IS81.lab01.view;
         import java.util.Scanner;
 
 public class Input {
+    private Validator validator;
     private Scanner scanner;
     private static final int Wrong_Item= -1;
+    private Output output;
 
     public Input(){
-        Validator validator = new Validator();
+        validator = new Validator();
         scanner = new Scanner(System.in);
     }
 
@@ -19,7 +21,7 @@ public class Input {
         String menuPoint;
         menuPoint = scanner.nextLine();
         try{
-            Validator.isValidMenuPoint(menuPoint);
+            validator.isValidMenuPoint(menuPoint);
         }
         catch (InvalidMenuItemException e) {
             output.showError(e.getMessage());
@@ -42,8 +44,6 @@ public class Input {
 
     }
 
-
-
     public String inputGivenCompany(Output output) {
         String givenCompany;
         output.showMessage("Enter name of company to show appropriate appliances:");
@@ -56,5 +56,17 @@ public class Input {
         }
         return givenCompany;
 
+    }
+
+    public String inputFilePath (Output output){
+        do{
+            String filePath;
+            output.showMessage("Where do you want to save it?");
+            filePath=scanner.nextLine();
+            if(Validator.validateFilepath(filePath)) {
+                return filePath;
+            }
+            else output.showMessage("Input another file path");
+        }while (true);
     }
 }
